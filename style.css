@@ -48,7 +48,7 @@ a:hover {
 
 .container {
     display: flex;
-    width: 100%; /* changed from 100px */
+    width: 100%;
     min-height: 100vh;
     justify-content: center;
     align-items: center;
@@ -59,7 +59,7 @@ a:hover {
     position: relative;
     backdrop-filter: blur(25px);
     width: 450px;
-    padding: 90px 40px 40px 40px; /* Added padding */
+    padding: 90px 40px 40px 40px;
     border: 2px solid var(--primary-color);
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -72,10 +72,10 @@ a:hover {
     position: absolute;
     left: 50%;
     top: 6.5%;
-    transform: translate(-50%, -50%); /* Adjusted to center vertically and horizontally */
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
-    justify-content: center; /* Added to center text horizontally */
+    justify-content: center;
     width: 140px;
     background-color: var(--primary-color);
     border-radius: 0 0 20px 20px;
