@@ -89,5 +89,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Crafted with ❤️ by [Yousef Elmarghany]**  
 
-![Folio](https://img.shields.io/badge/Portfolio-000?style=flat-square&logo=github&logoSize=100px&link=https%3A%2F%2Fscadower.github.io%2FDev-Folio%2F) |
-![Live](https://img.shields.io/badge/Portfolio-000?style=flat-square&logo=lapce&logoColor=000&logoSize=100px&labelColor=ffffff&color=ffffff&link=https%3A%2F%2Fscadower.github.io%2FLogin-Website-Code%2F)
+[![Folio](https://img.shields.io/badge/Portfolio-000?style=flat-square&logo=github&logoSize=100px&link=https%3A%2F%2Fscadower.github.io%2FDev-Folio%2F)](https://scadower.github.io/Dev-Folio/) |
+[![Live](https://img.shields.io/badge/Portfolio-000?style=flat-square&logo=lapce&logoColor=000&logoSize=100px&labelColor=ffffff&color=ffffff&link=https%3A%2F%2Fscadower.github.io%2FLogin-Website-Code%2F)](https://scadower.github.io/Login-Website-Code/) 
