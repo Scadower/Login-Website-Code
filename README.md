@@ -6,6 +6,7 @@
 
 A sleek, modern login interface featuring dynamic background animations and smooth UI interactions. Perfect for web applications requiring sophisticated authentication flows.
 
+[![Live](https://img.shields.io/badge/Live-000?style=flat-square&logo=lapce&logoColor=000&logoSize=200px&labelColor=ffffff&color=ffffff&link=https%3A%2F%2Fscadower.github.io%2FLogin-Website-Code%2F)](https://scadower.github.io/Login-Website-Code/) 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/8e56f5d6-fd84-492d-b1e0-a9e145560500" alt="Login Interface Preview" style="border-radius: 10px; border: 2px solid #474747; box-shadow: 0 4px 8px rgba(0,0,0,0.2); max-width: 80%;">
   
@@ -88,6 +89,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Crafted with ❤️ by [Yousef Elmarghany]**  
-
-[![Folio](https://img.shields.io/badge/Portfolio-000?style=flat-square&logo=github&logoSize=100px&link=https%3A%2F%2Fscadower.github.io%2FDev-Folio%2F)](https://scadower.github.io/Dev-Folio/) |
-[![Live](https://img.shields.io/badge/Portfolio-000?style=flat-square&logo=lapce&logoColor=000&logoSize=100px&labelColor=ffffff&color=ffffff&link=https%3A%2F%2Fscadower.github.io%2FLogin-Website-Code%2F)](https://scadower.github.io/Login-Website-Code/) 
+[![Folio](https://img.shields.io/badge/Portfolio-000?style=flat-square&logo=github&logoSize=100px&link=https%3A%2F%2Fscadower.github.io%2FDev-Folio%2F)](https://scadower.github.io/Dev-Folio/) 
