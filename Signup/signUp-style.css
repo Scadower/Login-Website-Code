@@ -1,7 +1,7 @@
 /* ===== Variables & Theme Setup ===== */
 :root {
     /* Light Mode */
-    --color-bg: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    --color-bg: #f8f9fa;
     --color-card-bg: #ffffff;
     --color-text: #212529;
     --color-text-muted: #6c757d;
@@ -14,7 +14,7 @@
     --color-warning: #f59e0b;
     --color-focus: rgba(37, 99, 235, 0.2);
     --color-google: #ea4335;
-    --color-github: #333333;
+    --color-github: #090b0e;
     
     /* Shared */
     --transition: 0.25s ease;
@@ -22,13 +22,12 @@
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-
     --star-color: black;
     --star-bg: white;
 }
 
 [data-theme="dark"] {
-    --color-bg: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+    --color-bg: #111827;
     --color-card-bg: #1f2937;
     --color-text: #f9fafb;
     --color-text-muted: #9ca3af;
@@ -41,7 +40,7 @@
     --color-warning: #fbbf24;
     --color-focus: rgba(59, 130, 246, 0.25);
     --color-google: #ea4335;
-    --color-github: #6e7681;
+    --color-dark-github: #090b0e;
     --star-color: white;
     --star-bg: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
 }
@@ -63,7 +62,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 /* ===== Container ===== */
@@ -76,66 +75,62 @@ body {
     z-index: 1;
 }
 
-/* ===== Login Card ===== */
-.login-card {
+/* ===== Signup Card ===== */
+.signup-card {
     background: var(--color-card-bg);
     box-shadow: var(--shadow-lg);
     border-radius: var(--radius);
-    padding: 2.5rem;
-    width: min(90%, 420px);
+    padding: 1.75rem;
+    width: min(90%, 400px);
     transition: all var(--transition);
     animation: card-appear 0.5s ease-out;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 @keyframes card-appear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.login-header {
+.signup-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-.login-header h1 {
-    font-size: 1.75rem;
+.signup-header h1 {
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     background: linear-gradient(90deg, var(--color-primary), #8b5cf6);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
-.login-header p {
+.signup-header p {
     color: var(--color-text-muted);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
 }
 
 /* ===== Form Elements ===== */
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .input-wrapper {
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.875rem;
 }
 
 .input-wrapper input {
     width: 100%;
-    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     background: var(--color-input-bg);
     color: var(--color-text);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     transition: all var(--transition);
 }
 
@@ -154,9 +149,9 @@ body {
 .input-wrapper label {
     position: absolute;
     left: 2.5rem;
-    top: 0.75rem;
+    top: 0.6rem;
     color: var(--color-text-muted);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     transition: all var(--transition);
     transform-origin: left top;
     pointer-events: none;
@@ -165,9 +160,9 @@ body {
 .input-wrapper .icon {
     position: absolute;
     left: 0.875rem;
-    top: 0.875rem;
+    top: 0.7rem;
     color: var(--color-text-muted);
-    font-size: 1rem;
+    font-size: 0.9375rem;
     transition: color var(--transition);
 }
 
@@ -193,10 +188,10 @@ body {
 
 /* Password Strength Meter */
 .password-strength {
-    height: 4px;
+    height: 3px;
     background: var(--color-border);
     border-radius: 2px;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
     overflow: hidden;
 }
 
@@ -209,18 +204,18 @@ body {
 
 .strength-text {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     color: var(--color-text-muted);
-    margin-top: 0.25rem;
+    margin-top: 0.125rem;
     text-align: right;
 }
 
 /* Validation Errors */
 .validation-error {
     color: var(--color-error);
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
-    min-height: 1rem;
+    font-size: 0.6875rem;
+    margin-top: 0.25rem;
+    min-height: 0.875rem;
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -234,29 +229,33 @@ body {
 
 /* Form Options */
 .form-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    font-size: 0.8125rem;
 }
 
 .checkbox {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
     cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+.checkbox span {
+    line-height: 1.4;
 }
 
 .checkbox input {
     appearance: none;
-    width: 1rem;
-    height: 1rem;
+    width: 0.9375rem;
+    height: 0.9375rem;
     border: 1px solid var(--color-border);
     border-radius: 0.25rem;
     position: relative;
     transition: all var(--transition);
     cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
 }
 
 .checkbox input:checked {
@@ -266,7 +265,7 @@ body {
 
 .checkbox input:checked::after {
     content: '✓';
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     position: absolute;
     top: -0.125rem;
     left: 0.125rem;
@@ -287,12 +286,12 @@ body {
 /* Buttons */
 .btn-primary {
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.6rem 1rem;
     border: none;
     border-radius: var(--radius);
     background: var(--color-primary);
     color: white;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     cursor: pointer;
     transition: all var(--transition);
@@ -317,8 +316,8 @@ body {
 }
 
 .btn-primary .spinner {
-    width: 1rem;
-    height: 1rem;
+    width: 0.9375rem;
+    height: 0.9375rem;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-top-color: white;
     border-radius: 50%;
@@ -340,16 +339,16 @@ body {
 
 /* Social Buttons */
 .social-auth {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .divider {
     display: flex;
     align-items: center;
     text-align: center;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--color-text-muted);
-    margin-bottom: 1rem;
+    margin-bottom: 0.875rem;
 }
 
 .divider::before,
@@ -360,30 +359,30 @@ body {
 }
 
 .divider::before {
-    margin-right: 0.75rem;
+    margin-right: 0.5rem;
 }
 
 .divider::after {
-    margin-left: 0.75rem;
+    margin-left: 0.5rem;
 }
 
 .social-buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .btn-social {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     border: 1px solid var(--color-border);
     background: var(--color-input-bg);
     color: var(--color-text);
-    font-size: 1.25rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all var(--transition);
 }
@@ -412,14 +411,14 @@ body {
 }
 
 /* Footer */
-.login-footer {
+.signup-footer {
     text-align: center;
-    margin-top: 1.5rem;
-    font-size: 0.875rem;
+    margin-top: 1rem;
+    font-size: 0.8125rem;
     color: var(--color-text-muted);
 }
 
-.login-footer a {
+.signup-footer a {
     color: var(--color-primary);
     text-decoration: none;
 }
@@ -432,8 +431,8 @@ body {
     background: var(--color-card-bg);
     border: 1px solid var(--color-border);
     border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -456,14 +455,13 @@ body {
 
 /* Responsive */
 @media (max-width: 480px) {
-    .login-card {
-        padding: 1.5rem;
+    .signup-card {
+        padding: 1.25rem;
+        max-height: 95vh;
     }
     
     .form-options {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
+        gap: 0.5rem;
     }
 }
 
@@ -489,18 +487,6 @@ body::before {
   height: 100%;
   background: var(--star-bg);
   z-index: -1;
-}
-
-/* Layer wrappers */
-.stars,
-.shooting-stars {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* Star dots - twinkling */
