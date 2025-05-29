@@ -1,0 +1,576 @@
+/* ===== Variables & Theme Setup ===== */
+:root {
+    /* Light Mode */
+    --color-bg: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    --color-card-bg: #ffffff;
+    --color-text: #212529;
+    --color-text-muted: #6c757d;
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+    --color-border: #e5e7eb;
+    --color-input-bg: #f9fafb;
+    --color-error: #ef4444;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-focus: rgba(37, 99, 235, 0.2);
+    --color-google: #ea4335;
+    --color-github: #333333;
+    
+    /* Shared */
+    --transition: 0.25s ease;
+    --radius: 0.5rem;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+    --star-color: black;
+    --star-bg: white;
+}
+
+[data-theme="dark"] {
+    --color-bg: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+    --color-card-bg: #1f2937;
+    --color-text: #f9fafb;
+    --color-text-muted: #9ca3af;
+    --color-primary: #3b82f6;
+    --color-primary-hover: #60a5fa;
+    --color-border: #374151;
+    --color-input-bg: #374151;
+    --color-error: #f87171;
+    --color-success: #34d399;
+    --color-warning: #fbbf24;
+    --color-focus: rgba(59, 130, 246, 0.25);
+    --color-google: #ea4335;
+    --color-github: #6e7681;
+    --star-color: white;
+    --star-bg: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+}
+
+/* ===== Core Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    transition: background-color var(--transition);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+/* ===== Container ===== */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Login Card ===== */
+.login-card {
+    background: var(--color-card-bg);
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    width: min(90%, 420px);
+    transition: all var(--transition);
+    animation: card-appear 0.5s ease-out;
+}
+
+@keyframes card-appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, var(--color-primary), #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.login-header p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+/* ===== Form Elements ===== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-input-bg);
+    color: var(--color-text);
+    font-size: 0.875rem;
+    transition: all var(--transition);
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-focus);
+}
+
+.input-wrapper input:not(:placeholder-shown) + label,
+.input-wrapper input:focus + label {
+    transform: translateY(-0.75rem) scale(0.8);
+    color: var(--color-primary);
+}
+
+.input-wrapper label {
+    position: absolute;
+    left: 2.5rem;
+    top: 0.75rem;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    transition: all var(--transition);
+    transform-origin: left top;
+    pointer-events: none;
+}
+
+.input-wrapper .icon {
+    position: absolute;
+    left: 0.875rem;
+    top: 0.875rem;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    transition: color var(--transition);
+}
+
+.input-wrapper input:focus ~ .icon {
+    color: var(--color-primary);
+}
+
+.input-wrapper input.invalid {
+    border-color: var(--color-error);
+}
+
+.input-wrapper input.invalid ~ .icon {
+    color: var(--color-error);
+}
+
+.input-wrapper input.valid ~ .icon {
+    color: var(--color-success);
+}
+
+.input-wrapper input::placeholder {
+    color: transparent;
+}
+
+/* Password Strength Meter */
+.password-strength {
+    height: 4px;
+    background: var(--color-border);
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+    border-radius: 2px;
+    transition: width 0.3s, background 0.3s;
+}
+
+.strength-text {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+    text-align: right;
+}
+
+/* Validation Errors */
+.validation-error {
+    color: var(--color-error);
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    min-height: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.validation-error.show {
+    opacity: 1;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox input {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    position: relative;
+    transition: all var(--transition);
+    cursor: pointer;
+}
+
+.checkbox input:checked {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.checkbox input:checked::after {
+    content: '✓';
+    font-size: 0.75rem;
+    position: absolute;
+    top: -0.125rem;
+    left: 0.125rem;
+    color: white;
+}
+
+.text-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+.text-link:hover {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-primary .spinner {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    position: absolute;
+}
+
+.btn-primary .btn-text {
+    transition: opacity var(--transition);
+}
+
+.btn-primary:disabled .btn-text {
+    opacity: 0;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Social Buttons */
+.social-auth {
+    margin-top: 1.5rem;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.divider::before {
+    margin-right: 0.75rem;
+}
+
+.divider::after {
+    margin-left: 0.75rem;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-input-bg);
+    color: var(--color-text);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-social:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-social.google:hover {
+    background: var(--color-google);
+    border-color: var(--color-google);
+    color: white;
+}
+
+.btn-social.github:hover {
+    background: var(--color-github);
+    border-color: var(--color-github);
+    color: white;
+}
+
+.btn-social.linkedin:hover {
+    background: #0a66c2;
+    border-color: #0a66c2;
+    color: white;
+}
+
+/* Footer */
+.login-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.login-footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition);
+    box-shadow: var(--shadow-sm);
+    z-index: 100;
+    color: var(--color-text);
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Helper Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 1.5rem;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+/* === Shooting Stars Background === */
+.stars,
+.shooting-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Background Gradient */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--star-bg);
+  z-index: -1;
+}
+
+/* Layer wrappers */
+.stars,
+.shooting-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Star dots - twinkling */
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: var(--star-color);
+  box-shadow:
+    2vw 5vh var(--star-color), 10vw 8vh var(--star-color), 15vw 15vh var(--star-color),
+    22vw 22vh var(--star-color), 28vw 12vh var(--star-color), 32vw 32vh var(--star-color),
+    38vw 18vh var(--star-color), 42vw 35vh var(--star-color), 48vw 25vh var(--star-color),
+    53vw 42vh var(--star-color), 58vw 15vh var(--star-color), 63vw 38vh var(--star-color),
+    68vw 28vh var(--star-color), 73vw 45vh var(--star-color), 78vw 32vh var(--star-color),
+    83vw 48vh var(--star-color), 88vw 20vh var(--star-color), 93vw 52vh var(--star-color),
+    98vw 35vh var(--star-color), 5vw 60vh var(--star-color);
+  animation: twinkle 8s infinite linear;
+}
+
+.stars::after {
+  box-shadow:
+    8vw 12vh var(--star-color), 16vw 18vh var(--star-color), 24vw 25vh var(--star-color),
+    33vw 15vh var(--star-color), 41vw 28vh var(--star-color), 49vw 35vh var(--star-color),
+    57vw 22vh var(--star-color), 65vw 42vh var(--star-color), 73vw 28vh var(--star-color),
+    81vw 48vh var(--star-color), 89vw 32vh var(--star-color), 97vw 45vh var(--star-color);
+  animation: twinkle 6s infinite linear reverse;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.3; }
+}
+
+/* Shooting streaks */
+.shooting-star {
+  position: absolute;
+  top: 0;
+  left: -100px;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--star-color), transparent);
+  opacity: 0;
+  transform: rotate(30deg);
+  animation: shoot 5s linear infinite;
+}
+
+.shooting-star:nth-child(1) {
+  top: 20%;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(2) {
+  top: 40%;
+  animation-delay: 2s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 60%;
+  animation-delay: 4s;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(30deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw) translateY(50vh) rotate(30deg);
+    opacity: 0;
+  }
+}
